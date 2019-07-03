@@ -1,0 +1,12 @@
+cmake_minimum_required(VERSION 2.8)
+
+project(merge)
+SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Ofast")
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Ofast")
+add_executable(${PROJECT_NAME} "main.cpp")
+find_package(Qt5Widgets REQUIRED)
+find_package(PCL 1.8 REQUIRED)
+include_directories(${PCL_INCLUDE_DIRS})
+link_directories(${PCL_LIBRARY_DIRS})
+add_definitions(${PCL_DEFINITIONS})
+target_link_libraries(merge ${PCL_LIBRARIES})
